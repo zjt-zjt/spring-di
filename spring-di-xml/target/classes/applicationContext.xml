@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="lisi" class="com.su.spring.bean.Man" />
+    <bean id="wang" class="com.su.spring.bean.Man">
+        <constructor-arg name="name" value="王" />
+    </bean>
+
+    <bean id="zhangsan" class="com.su.spring.bean.Man" c:name="张三" />
+  <!--  <bean id="xiaohong" class="com.su.spring.bean.Man" p:name="小红" />-->
+     <bean id="wangbo" class="com.su.spring.bean.Man">
+         <property name="name" value="王博"/>
+         <property name="hobbies">
+             <list>
+                 <value>打英雄联盟</value>
+                 <value>打地下城</value>
+                 <value>打刺激战场</value>
+             </list>
+         </property>
+         <!-- 注入空值和null -->
+         <property name="matiralStatus" value=""/>
+         <property name="gender">
+             <null/>
+         </property>
+     </bean>
+
+   <bean class="com.su.spring.bean.Man" autowire="constructor"></bean>
+    <bean id="xh" class="com.su.spring.bean.Man" p:name="小红" autowire="constructor"/>
+
+</beans>
